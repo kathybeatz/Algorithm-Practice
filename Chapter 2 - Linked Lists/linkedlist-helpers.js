@@ -1,12 +1,12 @@
 //Creating a Linked List
-export function Node ( value ) {
+var Node = function ( value ) {
   var node = {};
   node.value = value;
   node.next = null;
   return node;
 };
 
-export function LinkedList () {
+var LinkedList = function () {
   var list = {};
   list.head = null;
   list.tail = null;
