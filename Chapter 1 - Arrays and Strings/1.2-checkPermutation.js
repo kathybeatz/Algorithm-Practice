@@ -61,3 +61,27 @@ var checkPermutation = function( string1, string2 ) {
 };
 
 console.log("first run: ", checkPermutation(string11, string22));
+
+
+
+var checkPermutation = function( string1, string2 ) {
+
+  //if the two string lengths are different
+  if ( string1.length !== string2.length ) {
+    //return false
+    return false;
+  } 
+
+  //turn the strings into arrays and sort them
+  var string1sort = string1.split('').sort();
+  var string2sort = string2.split('').sort();
+
+  // console.log(string1sort);
+  // console.log(string2sort);
+
+  //compare the two strings
+  return JSON.stringify(string1sort) === JSON.stringify(string2sort);
+
+};
+
+console.log(checkPermutation(string11, string22));
