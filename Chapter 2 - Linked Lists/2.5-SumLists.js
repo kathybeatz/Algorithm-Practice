@@ -17,21 +17,29 @@ var sumLists = function ( list1, list2, carry ) {
 
   //variable to hold carry
   num = carry;
-  //
+  //if list1 is not the last node
   if ( list1 !== null ) {
+    //add the current value of the node in list1 to num
     num += list1.value;
   } 
+  //if list2 is not the last node
   if ( list2 !== null ) {
+    //add the current value of the node in list2 to num
     num += list2.value;
   }
 
+  //in the new linked list, set the current node's value to the tenths digit of num
   result.value = num % 10;
 
+  //if list1 or list2 are not at the last node
   if ( list1 !== null || list2 !== null ) {
+    //set a new node by recursing through the next node in each of the lists
     var node = addLists( list1 == null ? null : list1.next, list2 == null ? null : list2.next, num >= 10 ? 1 : 0 );
+    //set the next pointer to the new node
     result.next(node);
   }
 
+  //return the result linked list
   return list;
 };
 
