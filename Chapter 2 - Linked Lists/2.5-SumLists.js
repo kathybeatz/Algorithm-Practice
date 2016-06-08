@@ -33,7 +33,7 @@ var sumLists = function ( list1, list2, carry ) {
 
   //if list1 or list2 are not at the last node
   if ( list1 !== null || list2 !== null ) {
-    //set a new node by recursing through the next node in each of the lists
+    //set a new node by recursing through the next node in each of the lists, if num is greather than 10 - carry over a 1, otherwise carry over 0
     var node = addLists( list1 == null ? null : list1.next, list2 == null ? null : list2.next, num >= 10 ? 1 : 0 );
     //set the next pointer to the new node
     result.next(node);
