@@ -5,9 +5,13 @@ input: (7->1->6) + (5->9->2). //617 + 295
 output: (2->1->9) //912
 */
 
+
+//SOLUTION 1: works if both linked lists have teh same length
 //function should take in 2 lists, and a carry variable
 var sumLists = function ( list1, list2, carry ) {
   //check if the input items are valid
+
+
   if ( list1 === null || list2 === null || carry === 0) {
     return null;
   }
@@ -16,31 +20,84 @@ var sumLists = function ( list1, list2, carry ) {
   var result = new Node();
 
   //variable to hold carry
-  num = carry;
+  var extra = carry || 0;
+
+  //add carried number over
+  var num = 0 + extra;
+
   //if list1 is not the last node
-  if ( list1 !== null ) {
+  if ( list1.value !== null ) {
     //add the current value of the node in list1 to num
     num += list1.value;
   } 
   //if list2 is not the last node
-  if ( list2 !== null ) {
+  if ( list2.value !== null ) {
     //add the current value of the node in list2 to num
     num += list2.value;
   }
 
   //in the new linked list, set the current node's value to the tenths digit of num
+  console.log(num);
   result.value = num % 10;
 
   //if list1 or list2 are not at the last node
+
   if ( list1 !== null || list2 !== null ) {
     //set a new node by recursing through the next node in each of the lists, if num is greather than 10 - carry over a 1, otherwise carry over 0
-    var node = addLists( list1 == null ? null : list1.next, list2 == null ? null : list2.next, num >= 10 ? 1 : 0 );
+    var node = sumLists( list1.value == null ? null : list1.next, list2.value == null ? null : list2.next, num >= 10 ? 1 : 0 );
     //set the next pointer to the new node
-    result.next(node);
+    result.next = node;
   }
 
   //return the result linked list
-  return list;
+  console.log(result);
+  return result;
+};
+
+
+//SOLUTION 2: linked lists of different lengths
+
+var sumListsReverseOrder = function ( list1, list2 ) {
+  var head = { next: null }, //create pseudonode
+    tail = head,
+    carry = 0,
+    node1 = list1,
+    node2 = list2;
+
+  while ( node1 && node2 ) {
+    sum = node1.val + node2.val + carry;
+    if ( sum >= 10 ) {
+      carry = 1;
+      sum -= 10;
+    }
+    else {
+      carry = 0;
+    }
+    tail = tail.next = new Node ( sum );
+    node1 = node1.next;
+    node2 = node2.next;
+  }
+
+  node1 = node1 || node2; //go through whatever is remaining of the longer list
+
+  while ( node1 ) {
+    sum = node1.val + carry;
+    if ( sume >= 10 ) {
+      carry = 1;
+      sum -= 10;
+    } 
+    else {
+      carry = 0;
+    }
+    tail = tail.next = new Node ( sum );
+    node1 = node1.next;
+  }
+
+  if ( carry > 0 ) { //check for any remaining carry
+    tail.next = new Node ( carry );
+  }
+
+  return head.next;
 };
 
 //////////////////////////
@@ -119,15 +176,18 @@ function LinkedList () {
   return list;
 };
 
-var linkedlist1 = new LinkedList();
-var linkedlist2 = new LinkedList();
-linkedlist1.addToTail(7);
-linkedlist1.addToTail(1);
-linkedlist1.addToTail(6);
-linkedlist2.addToTail(3);
-linkedlist2.addToTail(9);
-linkedlist2.addToTail(2);
-console.log(linkedlist1);
-console.log(linkedlist2);
+
+
+var list1 = new LinkedList();
+var list2 = new LinkedList();
+list1.addToTail(7);
+list1.addToTail(1);
+list1.addToTail(6);
+list2.addToTail(5);
+list2.addToTail(9);
+list2.addToTail(2);
+// console.log(linkedlist1);
+// console.log(linkedlist2);
+console.log( sumLists ( list1.head, list2.head ));
 
 
