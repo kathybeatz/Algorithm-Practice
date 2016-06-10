@@ -64,39 +64,61 @@ var sumListsReverseOrder = function ( list1, list2 ) {
     node1 = list1,
     node2 = list2;
 
+  //loop as long as dont hit end of either list
   while ( node1 && node2 ) {
+    //set the sum to equal the value of each node and the carried value
     sum = node1.val + node2.val + carry;
+    //if the sum is greater than 10
     if ( sum >= 10 ) {
+      //carry over a 1
       carry = 1;
+      //subract 10 from the sum
       sum -= 10;
     }
+    //otherwise
     else {
+      //the carried value is 0
       carry = 0;
     }
+
+    //set the tail to tail.next (a new node, with the sum passed as the value)
     tail = tail.next = new Node ( sum );
+    //set node1 to the next value
     node1 = node1.next;
+    //set node2 to the next value
     node2 = node2.next;
   }
 
   node1 = node1 || node2; //go through whatever is remaining of the longer list
 
+  //loop as long as you dont hit the last node
   while ( node1 ) {
+    //set the sum to be the node's value plus the carried value
     sum = node1.val + carry;
-    if ( sume >= 10 ) {
+    //if the sum is greater than 10
+    if ( sum >= 10 ) {
+      //set carry to 1
       carry = 1;
+      //subtract 10 from the sum
       sum -= 10;
     } 
+    // otherwise
     else {
+      //set carry to 0
       carry = 0;
     }
+    //set the tail to tail.next (a new node, with the sum passed as the value)
     tail = tail.next = new Node ( sum );
+    //set node1 to the next value
     node1 = node1.next;
   }
 
   if ( carry > 0 ) { //check for any remaining carry
+    //set the tail's next pointer to a new node with the carried value
     tail.next = new Node ( carry );
   }
 
+  //return the resulting linked list
   return head.next;
 };
 
