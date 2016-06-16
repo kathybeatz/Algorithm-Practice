@@ -1,7 +1,6 @@
 //2.6 Palindrome: Implement a function to check if a linked list is a palindrome.
 
 //SOLUTION 1: Get the length of the linked list, go through first half of the linked list and push values onto a stack. If the linked list has an odd length, skip the middle element. Compare the second half of the linked list to the values popped off the stack. 
-
 var isPalindromeStack = function ( list ) {
   var length = getLength(list);
 
@@ -45,22 +44,88 @@ var isPalindromeStack = function ( list ) {
 
 
 //SOLUTION 2: Reverse the linked list, compare to original (only need to compare first half)
-
+//function should take in a linked list
 var isPalindromeReverse = function ( list ) {
-  var node = list.head;
-  var prev = null;
-  console.log(node);
-  while ( node ) {
-    var save = node.next;
-    node.next = prev;
-    prev = node;
-    console.log('prev', prev);
+  //get the length of the linked list
+  var length = getLength(list);
+
+  //if the length of the list is 1 or 0
+  if ( length <= 1 ) {
+    //the list is a palindrome
+    return true;
+  }
+
+  //grab the head of the list
+  var node = list.head,
+      half = Math.floor(length/2),
+      mid;
+
+  //find the middle node
+  for ( var i = half; i > 0; i-- ) {    
+    mid = node;
+    //set the current node to the next node
+    node = node.next;
+  } 
+
+  //reverse the first half of the linked list
+  var tail = reverse(node, mid),
+    isPalindrome = true,
+    prev = null,
+    next;
+
+  //walk from start to middle and end to middle comparing values
+
+  //start with the head of the original list
+  node = list.head;
+  //iterate through the first half of the orig linked list and the entire reversed first half of the linked list
+  for (var i = half; i > 0; --i) {
+    //set the boolean whether both node values from each list match
+    isPalindrome = isPalindrome && node.value === tail.value;
+    //move down the reversed list
+    next = tail.next;
+    tail.next = prev;
+    prev = tail;
+    tail = next;
+    //move down the original linked list
+    node = node.next;
 
   }
+
+  //return the result
+  return isPalindrome;
 };
 
 
+function reverse(node, end) {
+  var prev = end,
+    next;
+  while (node) {
+    next = node.next;
+    node.next = prev;
+    prev = node;
+    node = next;
+  }
+  return prev;
+}
 
+
+//////////////////////////
+//Creating a Linked List//
+//////////////////////////
+function Node ( value ) {
+  this.value = value;
+  this.next = null;
+};
+
+function getLength ( list ) {
+  var length = 0;
+  var node = list.head;
+  while ( node ) {
+    length += 1;
+    node = node.next;
+  }
+  return length;
+};
 
 
 //////////////////////////
@@ -138,21 +203,19 @@ function LinkedList () {
   return list;
 };
 
-function getLength ( list ) {
-  var length = 0;
-  var node = list.head;
-  while ( node ) {
-    length += 1;
-    node = node.next;
-  }
-  return length;
-};
 
+//testing proper palindrome
 var linkedlist = new LinkedList();
 linkedlist.addToTail(0);
 linkedlist.addToTail(1);
 linkedlist.addToTail(2);
 linkedlist.addToTail(1);
 linkedlist.addToTail(0);
-console.log(isPalindromeStack(linkedlist));
-console.log(isPalindromeReverse(linkedlist));
+console.log(isPalindromeReverse(linkedlist)); //should return true
+
+//testing non-palindrome
+var linkedlist2 = new LinkedList();
+linkedlist2.addToTail(0);
+linkedlist2.addToTail(2);
+linkedlist2.addToTail(1);
+console.log(isPalindromeReverse(linkedlist2)); //should return false
