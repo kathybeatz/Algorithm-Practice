@@ -8,22 +8,24 @@
  *
  */
 
+//Solution 1: Use additional data structure (object) to keep track of original characters, fail when a repeated character is found.
 
-var word1 = "Monday";
-var word2 = "Mississippi";
+var word1 = 'Monday';
+var word2 = 'Mississippi';
 
 //function takes in a string
 var isUnique = function(string){
   //create an object to keep track of characters
   var charList = {};
   //iterate through the string
-  for(var i = 0; i < string.length; i++){
+  for ( var i = 0; i < string.length; i++ ) {
     //if the character is in the object
-    if(charList[string[i]] === string[i]){
+    if ( charList[string[i]] === string[i] ) {
       //return false
       return false;
     //else
-    } else{
+    } 
+    else {
       //put the character in the charlist
       charList[string[i]] = string[i];
     }
@@ -32,5 +34,5 @@ var isUnique = function(string){
   return true;
 };
 
-console.log(isUnique(word1)); //true
-console.log(isUnique(word2)); //false
+console.log( isUnique(word1) ); //true
+console.log( isUnique(word2) ); //false
