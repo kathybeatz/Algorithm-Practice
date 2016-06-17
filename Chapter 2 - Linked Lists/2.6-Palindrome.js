@@ -106,25 +106,6 @@ function reverse(node, end) {
     node = next;
   }
   return prev;
-}
-
-
-//////////////////////////
-//Creating a Linked List//
-//////////////////////////
-function Node ( value ) {
-  this.value = value;
-  this.next = null;
-};
-
-function getLength ( list ) {
-  var length = 0;
-  var node = list.head;
-  while ( node ) {
-    length += 1;
-    node = node.next;
-  }
-  return length;
 };
 
 
@@ -201,6 +182,16 @@ function LinkedList () {
   };
   
   return list;
+};
+
+function getLength ( list ) {
+  var length = 0;
+  var node = list.head;
+  while ( node ) {
+    length += 1;
+    node = node.next;
+  }
+  return length;
 };
 
 
