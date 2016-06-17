@@ -2,9 +2,11 @@
 
 //function takes in two linked lists 
 var doIntersect = function ( list1, list2 ) {
+  //get the lengths of both of the lists
   var len1 = getLength(list1);
   var len2 = getLength(list2);
 
+  // if the lists are not the same length then make the longer list skip the length difference
   list1 = skip(list1, len1-len2);
   list2 = skip(list2, len2-len1);
 
@@ -12,17 +14,21 @@ var doIntersect = function ( list1, list2 ) {
   node2 = list2;
   // console.log('node2 - first', node2);
 
+  //loop as long as it is not the last node for either list
   while ( node1 && node2 ) {
+    //need to stringify to compare 
     var node1string = JSON.stringify(node1);
     var node2string = JSON.stringify(node2);
+    //if the 2 current nodes match
     if ( node1string === node2string ) {
+      //return the node
       return node1.value;
     }
+    //move the nodes on each list down
     node1 = node1.next;
     node2 = node2.next;
-    console.log('node2', node2)
-    console.log('node1', node1)
   }
+  //if there is no intersection return undefined
   return undefined;
 };
 
