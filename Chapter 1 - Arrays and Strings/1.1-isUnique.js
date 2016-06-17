@@ -38,6 +38,15 @@ console.log( isUnique(word1) ); //true
 console.log( isUnique(word2) ); //false
 
 //Solution 2: Sort the original string, iterate through it. Repeated characters will show up next to each other and will fail when found.
+
+/*
+ *
+ * | N | characters in string
+ * Time: O(N log N) ~ due to native sort
+ * Additonal space: O(N)
+ *
+ */
+
 var isUniqueSort = function (string) {
   //make string an array
   var split = string.split('');
