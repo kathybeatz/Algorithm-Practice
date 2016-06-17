@@ -14,7 +14,7 @@ var word1 = 'Monday';
 var word2 = 'Mississippi';
 
 //function takes in a string
-var isUnique = function(string){
+var isUnique = function (string) {
   //create an object to keep track of characters
   var charList = {};
   //iterate through the string
@@ -36,3 +36,25 @@ var isUnique = function(string){
 
 console.log( isUnique(word1) ); //true
 console.log( isUnique(word2) ); //false
+
+//Solution 2: Sort the original string, iterate through it. Repeated characters will show up next to each other and will fail when found.
+var isUniqueSort = function (string) {
+  //make string an array
+  var split = string.split('');
+  //use native Array sort
+  var sorted = split.sort();
+
+  //iterate through the sorted string
+  for ( var i = 0; i < sorted.length; i++ ) {
+    //if the current character and the character next to it are the same
+    if ( sorted[i] === sorted[i+1] ) {
+      //return false
+      return false;
+    }
+  }
+  //did not find repeated characters, return true, string is unique
+  return true;
+};
+
+console.log( isUniqueSort(word1) ); //true
+console.log( isUniqueSort(word2) ); //false
