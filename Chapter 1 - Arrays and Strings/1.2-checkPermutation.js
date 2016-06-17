@@ -16,7 +16,17 @@ var obj2 = {
 
 console.log(JSON.stringify(obj1) === JSON.stringify(obj2));
 
-var checkPermutation = function( string1, string2 ) {
+//Solution 1: Sort both strings, iterate through each string, save the characters and their counts in an object, check the objects against each other.
+
+/*
+ *
+ * | N | characters in string
+ * Time: O(N log N) ~ due to native sort
+ * Additonal space: O(N)
+ *
+ */
+
+var checkPermutation1 = function( string1, string2 ) {
 
   var stringList1 = {};
   var stringList2 = {};
@@ -60,11 +70,20 @@ var checkPermutation = function( string1, string2 ) {
 
 };
 
-console.log("first run: ", checkPermutation(string11, string22));
+console.log("first run: ", checkPermutation1(string11, string22));
 
 
+//Solution 2: Check if the two strings have the same length, sort the strings, check them against each other.
 
-var checkPermutation = function( string1, string2 ) {
+/*
+ *
+ * | N | characters in string
+ * Time: O(N log N) ~ due to native sort 
+ * Additonal space: O(N)
+ *
+ */
+
+var checkPermutation2 = function( string1, string2 ) {
 
   //if the two string lengths are different
   if ( string1.length !== string2.length ) {
@@ -84,4 +103,4 @@ var checkPermutation = function( string1, string2 ) {
 
 };
 
-console.log(checkPermutation(string11, string22));
+console.log(checkPermutation2(string11, string22));
