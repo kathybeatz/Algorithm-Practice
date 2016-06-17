@@ -28,7 +28,7 @@ var zeroMatrix = function ( matrix ) {
 
   //iterate through each row
   for ( var y = 0; y < rows.length; y++ ) {
-    //iterate through each collumn
+    //iterate through each column
     for ( var x = 0; x < cols.length; x++ ) {
       //check if the original matrix has a 0 at that position
       if ( matrix[y][x] === 0 ) {
