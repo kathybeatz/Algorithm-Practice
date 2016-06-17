@@ -1,5 +1,14 @@
 //1.1 Is Unique: Implement an algorithm to determine if a string has all unique characters.
 
+/*
+ *
+ * | N | characters in string
+ * Time: O(N) 
+ * Additonal space: O(N)
+ *
+ */
+
+
 var word1 = "Monday";
 var word2 = "Mississippi";
 
