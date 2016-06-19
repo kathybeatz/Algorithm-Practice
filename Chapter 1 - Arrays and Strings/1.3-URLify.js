@@ -1,5 +1,15 @@
 //1.3 URLify: Write a method to replace all spaces in a string with '%20'. You may assume that the string has sufficient space at the end to hold the additonal characters, and that you are given the "true" length of the string. 
 
+//Solution 1: 
+
+/*
+ *
+ * | N | characters in string
+ * Time: O(N) 
+ * Additonal space: O(N)
+ *
+ */
+
 var stringToURL = 'Mr John Smith   ';
 var stringL = 13;
 
