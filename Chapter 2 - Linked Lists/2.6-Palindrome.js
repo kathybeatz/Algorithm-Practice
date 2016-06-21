@@ -1,6 +1,13 @@
 //2.6 Palindrome: Implement a function to check if a linked list is a palindrome.
 
-//SOLUTION 1: Get the length of the linked list, go through first half of the linked list and push values onto a stack. If the linked list has an odd length, skip the middle element. Compare the second half of the linked list to the values popped off the stack. 
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
+
+//Solution 1: Get the length of the linked list, go through first half of the linked list and push values onto a stack. If the linked list has an odd length, skip the middle element. Compare the second half of the linked list to the values popped off the stack. 
 var isPalindromeStack = function ( list ) {
   var length = getLength(list);
 
@@ -41,9 +48,14 @@ var isPalindromeStack = function ( list ) {
 };
 
 
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
 
-
-//SOLUTION 2: Reverse the linked list, compare to original (only need to compare first half)
+//Solution 2: Reverse the linked list, compare to original (only need to compare first half)
 //function should take in a linked list
 var isPalindromeReverse = function ( list ) {
   //get the length of the linked list

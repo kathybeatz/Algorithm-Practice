@@ -5,8 +5,14 @@ input: (7->1->6) + (5->9->2). //617 + 295
 output: (2->1->9) //912
 */
 
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
 
-//SOLUTION 1: works if both linked lists have teh same length
+//Solution 1: works if both linked lists have teh same length
 //function should take in 2 lists, and a carry variable
 var sumLists = function ( list1, list2, carry ) {
   //check if the input items are valid

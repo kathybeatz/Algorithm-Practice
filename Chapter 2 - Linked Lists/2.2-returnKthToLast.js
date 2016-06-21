@@ -1,6 +1,13 @@
 //2.2 Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list.
 
-//Solution 1: 
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
+
+//Solution 1:
 /*
 Walk one pointer ahead k nodes first
 then create a 2nd pointer to the start of the list
@@ -41,7 +48,14 @@ var kthToTheLastTwoPointers = function ( list, k ) {
 // console.log( kthToTheLastTwoPointers(linkedlist, 1) );
 
 
-//Solution 2: 
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
+
+//Solution 2:
 /*
 Determine the length of the linked list
 Subtract k from the calculated length

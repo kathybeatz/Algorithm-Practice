@@ -7,7 +7,14 @@ m = [
   [0, 1, 1, 1]
 ];
 
-//SOLUTION 1
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
+
+//Solution 1:
 var zeroMatrix = function ( matrix ) {
   if (!matrix) {
     throw new Error ('invalid matrix');

@@ -1,5 +1,14 @@
 //2.3 Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e. any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node
 
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
+
+//Solution 1:
+
 //function should take in a node
 var deleteMiddleNode = function ( node ) {
   //check if that node is valid

@@ -7,6 +7,14 @@
 //Input: A -> B -> C -> D -> E -> C [the same C as earlier]
 //Output: C
 
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
+
+//Solution 1:
 var loopDetection = function ( list ) {
   //check if the list is valid
   if ( !list ) {

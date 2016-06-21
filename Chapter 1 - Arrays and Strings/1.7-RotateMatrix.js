@@ -18,7 +18,14 @@ m = [
   [0, 0, 0, 1]
 ];
 
-//SOLUTION: rotated in place, start out by rotating each corner, working way inward
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
+
+//Solution 1: rotated in place, start out by rotating each corner, working way inward
 
 //function takes in a matrix
 var rotateMatrix = function ( matrix ) {

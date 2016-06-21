@@ -1,5 +1,14 @@
 //2.1 Remove Dups: Write code to remove duplicates from an unsorted linked list
 
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
+
+//Solution 1:
+
 //function takes in a linked list
 var removeDups = function ( list ) {
   //set node to the head node
@@ -34,7 +43,14 @@ linkedlist.addToTail(4);
 console.log( removeDups(linkedlist) );
 
 
-//No buffer, iterate with two pointers: CURRENT which iterates through the linked list, and RUNNER which checks all subsequent nodes for duplicates
+/*
+ *
+ * Time: 
+ * Additonal space: 
+ *
+ */
+
+//Solution 2: No buffer, iterate with two pointers: CURRENT which iterates through the linked list, and RUNNER which checks all subsequent nodes for duplicates
 
 //function takes in a list
 var deleteDupes = function ( list ) {
