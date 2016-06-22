@@ -20,9 +20,7 @@ TripleStack.prototype.getLength = function(stack) {
 
 TripleStack.prototype.push = function(stack, value) {
   var index = (this.getLength(stack) * 3) + stack - 1;
-  console.log('pushed index', index);
   this._array[index] = value;
-  console.log('value', this._array[index]);
   this._lengths[stack - 1]++;
 };
 
