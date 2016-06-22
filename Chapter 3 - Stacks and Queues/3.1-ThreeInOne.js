@@ -1,5 +1,11 @@
 //3.1 Three in One: Describe how you could use a single array to implement three stacks.
 
+/*
+ *
+ * Time: push O(1), pop O(1), peek O(1)
+ * Additonal space: push (1), pop O(1), peek O(1) 
+ *
+ */
 
 //Solution 1: Pseudoclassical TripleStack implementation. TripleStack class holds 3 stacks in one array. The first items are placed at indexes 0, 1, and 2 (e.g. Push 'a' into stack 1, 'a' will be at index 0 etc.). Following items are placed every 3 places from those. 
 
