@@ -2,9 +2,10 @@
 
 /*
  *
- * Time: 
- * Additonal space: 
- *
+ * Time: push O(1), pop O(1), peek O(1), min O(1)
+ * Additonal space: push O(N), pop O(1), peek O(1), min O(1)
+ * Additional space required in push to create wrapping object to hold min at
+ * that point.
  */
 
  //Solution 1:
