@@ -4,8 +4,10 @@
 
 /*
  *
- * Time: 
- * Additonal space: 
+ * N = total number of items
+ * M = size of smaller stack
+ * Time: push O(1), pop O(1), popAt O(N)
+ * Additional space: push O(1), pop O(1), popAt O(M)
  *
  */
 
