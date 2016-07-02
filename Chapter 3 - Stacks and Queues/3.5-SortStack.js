@@ -43,6 +43,7 @@ var sortStack = function(stack) {
   return stack;
 };
 
+//return the value on the top of the stack
 var peek = function(stack) {
   return stack[stack.length - 1];
 };
