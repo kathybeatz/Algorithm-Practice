@@ -2,8 +2,10 @@
 
 /*
  *
- * Time: 
- * Additonal space: 
+ * N = |stack|
+ * Time: O(N^2)
+ * Additional space: O(1) - while there are 2 stacks there are only a fixed
+ * number of items. 
  *
  */
 
@@ -36,7 +38,9 @@ var sortStack = function(stack) {
     }
   }
 
+  //loop as long as the temporary stack is not empty
   while (!isEmpty(temp)) {
+    //
     stack.push(tempStack.pop());
   }
 
@@ -48,6 +52,7 @@ var peek = function(stack) {
   return stack[stack.length - 1];
 };
 
+//check if the stack is empty
 var isEmpty = function(stack) {
   return stack.length === 0;
 };
