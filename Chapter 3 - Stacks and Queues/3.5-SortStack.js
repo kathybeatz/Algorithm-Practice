@@ -28,14 +28,16 @@ var sortStack = function(stack) {
 
     //loop as long as the temporary stack is not empty and the current item is less than the last item in the temporary stack
     while (!isEmpty(temp) && current < peek(tempStack)) {
-      //
+      //push the item at the top of the 
       stack.push(tempStack.pop());
       count++;
     }
+
     tempStack.push(current);
     for (var i = 0; i < count; i++) {
       tempStack.push(stack.pop());
     }
+
   }
 
   //loop as long as the temporary stack is not empty
@@ -44,6 +46,7 @@ var sortStack = function(stack) {
     stack.push(tempStack.pop());
   }
 
+  //return the sorted stack
   return stack;
 };
 
