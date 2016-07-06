@@ -10,7 +10,7 @@
  */
 
 
-//Solution 1:
+//Solution 1: Sort the stack by taking one item off the input stack at a time (current), find the right place within the process items in the temp stack to insert into. Insertion is done by holding the next value aside and moviing the temp stack values into the input stack until the right spot is found.
 
 //function takes in a stack
 var sortStack = function(stack) {
@@ -22,18 +22,19 @@ var sortStack = function(stack) {
   //loop as long as the stack is not empty
   while (!isEmpty(stack)) {
     //set current equal to the last item in the temporary stack
-    var current = tempStack.pop();
+    var current = stack.pop();
     //set count to 0
     var count = 0;
 
     //loop as long as the temporary stack is not empty and the current item is less than the last item in the temporary stack
-    while (!isEmpty(temp) && current < peek(tempStack)) {
+    while (!isEmpty(tempStack) && current < peek(tempStack)) {
       //push the item at the top of the 
       stack.push(tempStack.pop());
       count++;
     }
 
     tempStack.push(current);
+    
     for (var i = 0; i < count; i++) {
       tempStack.push(stack.pop());
     }
@@ -41,7 +42,7 @@ var sortStack = function(stack) {
   }
 
   //loop as long as the temporary stack is not empty
-  while (!isEmpty(temp)) {
+  while (!isEmpty(tempStack)) {
     //
     stack.push(tempStack.pop());
   }
@@ -50,12 +51,16 @@ var sortStack = function(stack) {
   return stack;
 };
 
+
 //return the value on the top of the stack
-var peek = function(stack) {
+function peek(stack) {
   return stack[stack.length - 1];
 };
 
 //check if the stack is empty
-var isEmpty = function(stack) {
+function isEmpty(stack) {
   return stack.length === 0;
 };
+
+var unSortedStack = [1,3,2,5,4];
+console.log(sortStack(unSortedStack));
