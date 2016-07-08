@@ -21,29 +21,30 @@ var sortStack = function(stack) {
   
   //loop as long as the stack is not empty
   while (!isEmpty(stack)) {
-    //set current equal to the last item in the temporary stack
+    //current equals the top of the stack
     var current = stack.pop();
-    //set count to 0
     var count = 0;
-
-    //loop as long as the temporary stack is not empty and the current item is less than the last item in the temporary stack
+    
+    //loop as long as temp stack isnt empy and current is less than the top of temp stack
     while (!isEmpty(tempStack) && current < peek(tempStack)) {
-      //push the item at the top of the 
+      //pop off items in temp stack that are greater than the current back into the input stack
       stack.push(tempStack.pop());
+      //increment the count each time item is popped off from temp stack
       count++;
     }
 
+    //if the current is not less than item on the top of the temp stack, add it to the top of the stack
     tempStack.push(current);
-    
+
+    //put back the items into temp stack that were removed 
     for (var i = 0; i < count; i++) {
       tempStack.push(stack.pop());
     }
 
   }
 
-  //loop as long as the temporary stack is not empty
+  //put the ordered stack held in temp stack back in the original stack array in reverse
   while (!isEmpty(tempStack)) {
-    //
     stack.push(tempStack.pop());
   }
 
