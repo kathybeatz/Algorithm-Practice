@@ -230,10 +230,12 @@ var dfs = function(graph, discovered, source, target) {
 
   //add current node to set (list of marked nodes)
   discovered.add(source);
-  //loop through 
+  //loop through the current node's list of neighbor nodes
   for (var neighbor of graph._nodes[source]) {
     if (!discovered.has(neighbor)) {
+      //recursively call function -> source is now set to current neighbor node
       if ( dfs(graph, discovered, neighbor, target) ) {
+        //if the source is equal to the target, return true
         return true;
       }
     }
